@@ -1,0 +1,253 @@
+{
+  "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Resources/deployments/test-1",
+  "location": null,
+  "name": "test-1",
+  "properties": {
+    "correlationId": "39896ccd-ceea-4f53-80b7-ad218c229704",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/networkSecurityGroups/test-vm-nsg",
+            "resourceGroup": "test-rg",
+            "resourceName": "test-vm-nsg",
+            "resourceType": "Microsoft.Network/networkSecurityGroups"
+          },
+          {
+            "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/publicIPAddresses/test-ip",
+            "resourceGroup": "test-rg",
+            "resourceName": "test-ip",
+            "resourceType": "Microsoft.Network/publicIPAddresses"
+          }
+        ],
+        "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/networkInterfaces/test-vm230_z1",
+        "resourceGroup": "test-rg",
+        "resourceName": "test-vm230_z1",
+        "resourceType": "Microsoft.Network/networkInterfaces"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/networkInterfaces/test-vm230_z1",
+            "resourceGroup": "test-rg",
+            "resourceName": "test-vm230_z1",
+            "resourceType": "Microsoft.Network/networkInterfaces"
+          }
+        ],
+        "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/test-vm",
+        "resourceGroup": "test-rg",
+        "resourceName": "test-vm",
+        "resourceType": "Microsoft.Compute/virtualMachines"
+      }
+    ],
+    "duration": "PT1M29.9395811S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [
+      {
+        "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/test-vm",
+        "resourceGroup": "test-rg"
+      },
+      {
+        "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/networkInterfaces/test-vm230_z1",
+        "resourceGroup": "test-rg"
+      },
+      {
+        "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/networkSecurityGroups/test-vm-nsg",
+        "resourceGroup": "test-rg"
+      },
+      {
+        "id": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/publicIPAddresses/test-ip",
+        "resourceGroup": "test-rg"
+      }
+    ],
+    "outputs": {
+      "adminUsername": {
+        "type": "String",
+        "value": "satake"
+      }
+    },
+    "parameters": {
+      "adminPassword": {
+        "type": "SecureString"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "satake"
+      },
+      "enableHotpatching": {
+        "type": "Bool",
+        "value": false
+      },
+      "location": {
+        "type": "String",
+        "value": "japaneast"
+      },
+      "networkInterfaceName1": {
+        "type": "String",
+        "value": "test-vm230_z1"
+      },
+      "networkSecurityGroupName": {
+        "type": "String",
+        "value": "test-vm-nsg"
+      },
+      "networkSecurityGroupRules": {
+        "type": "Array",
+        "value": [
+          {
+            "name": "RDP",
+            "properties": {
+              "access": "Allow",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "3389",
+              "direction": "Inbound",
+              "priority": 300,
+              "protocol": "TCP",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*"
+            }
+          }
+        ]
+      },
+      "nicDeleteOption": {
+        "type": "String",
+        "value": "Delete"
+      },
+      "osDiskDeleteOption": {
+        "type": "String",
+        "value": "Delete"
+      },
+      "osDiskType": {
+        "type": "String",
+        "value": "Premium_LRS"
+      },
+      "patchMode": {
+        "type": "String",
+        "value": "AutomaticByOS"
+      },
+      "pipDeleteOption": {
+        "type": "String",
+        "value": "Delete"
+      },
+      "publicIpAddressName1": {
+        "type": "String",
+        "value": "test-ip"
+      },
+      "publicIpAddressSku": {
+        "type": "String",
+        "value": "Standard"
+      },
+      "publicIpAddressType": {
+        "type": "String",
+        "value": "Static"
+      },
+      "subnetName": {
+        "type": "String",
+        "value": "test-subnet"
+      },
+      "virtualMachineComputerName1": {
+        "type": "String",
+        "value": "test-vm"
+      },
+      "virtualMachineName": {
+        "type": "String",
+        "value": "test-vm"
+      },
+      "virtualMachineName1": {
+        "type": "String",
+        "value": "test-vm"
+      },
+      "virtualMachineRG": {
+        "type": "String",
+        "value": "test-rg"
+      },
+      "virtualMachineSize": {
+        "type": "String",
+        "value": "Standard_B2ms"
+      },
+      "virtualNetworkId": {
+        "type": "String",
+        "value": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet"
+      },
+      "zone": {
+        "type": "String",
+        "value": "1"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.Network",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": ["japaneast"],
+            "properties": null,
+            "resourceType": "networkInterfaces"
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": ["japaneast"],
+            "properties": null,
+            "resourceType": "networkSecurityGroups"
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": ["japaneast"],
+            "properties": null,
+            "resourceType": "publicIPAddresses"
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Compute",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": ["japaneast"],
+            "properties": null,
+            "resourceType": "virtualMachines"
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "templateHash": "7137335144595676902",
+    "templateLink": null,
+    "timestamp": "2022-07-24T01:17:13.542972+00:00",
+    "validatedResources": null
+  },
+  "resourceGroup": "test-rg",
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}

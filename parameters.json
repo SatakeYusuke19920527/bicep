@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "japaneast"
+    },
+    "networkInterfaceName1": {
+      "value": "test-vm-01269_z1"
+    },
+    "networkSecurityGroupName": {
+      "value": "test-vm-01-nsg"
+    },
+    "networkSecurityGroupRules": {
+      "value": [
+        {
+          "name": "RDP",
+          "properties": {
+            "priority": 300,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "3389"
+          }
+        }
+      ]
+    },
+    "subnetName": {
+      "value": "test-subnet-01"
+    },
+    "virtualNetworkName": {
+      "value": "test-vnet-01"
+    },
+    "addressPrefixes": {
+      "value": ["10.2.0.0/16"]
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "test-subnet-01",
+          "properties": {
+            "addressPrefix": "10.2.0.0/24"
+          }
+        }
+      ]
+    },
+    "publicIpAddressName1": {
+      "value": "test-vm-01-ip"
+    },
+    "publicIpAddressType": {
+      "value": "Static"
+    },
+    "publicIpAddressSku": {
+      "value": "Standard"
+    },
+    "pipDeleteOption": {
+      "value": "Delete"
+    },
+    "virtualMachineName": {
+      "value": "test-vm-01"
+    },
+    "virtualMachineName1": {
+      "value": "test-vm-01"
+    },
+    "virtualMachineComputerName1": {
+      "value": "test-vm-01"
+    },
+    "virtualMachineRG": {
+      "value": "test-rg"
+    },
+    "osDiskType": {
+      "value": "Premium_LRS"
+    },
+    "osDiskDeleteOption": {
+      "value": "Delete"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_B2ms"
+    },
+    "nicDeleteOption": {
+      "value": "Delete"
+    },
+    "adminUsername": {
+      "value": "satake"
+    },
+    "adminPassword": {
+      "value": "satake123123!"
+    },
+    "patchMode": {
+      "value": "AutomaticByOS"
+    },
+    "enableHotpatching": {
+      "value": false
+    },
+    "zone": {
+      "value": "1"
+    }
+  }
+}
