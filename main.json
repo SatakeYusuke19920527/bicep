@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "newVMName": {
+      "type": "string",
+      "defaultValue": "satake001"
+    },
+    "labName": {
+      "type": "string",
+      "defaultValue": "DTL-labo"
+    },
+    "size": {
+      "type": "string",
+      "defaultValue": "Standard_D2s_v3"
+    },
+    "userName": {
+      "type": "string",
+      "defaultValue": "satake"
+    },
+    "password": {
+      "type": "securestring"
+    }
+  },
+  "variables": {
+    "labSubnetName": "DTL-subnet",
+    "labVirtualNetworkId": "[resourceId('Microsoft.DevTestLab/labs/virtualnetworks', parameters('labName'), variables('labVirtualNetworkName'))]",
+    "labVirtualNetworkName": "DTL-vnet",
+    "vmId": "[resourceId ('Microsoft.DevTestLab/labs/virtualmachines', parameters('labName'), parameters('newVMName'))]",
+    "vmName": "[concat(parameters('labName'), '/', parameters('newVMName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-10-15-preview",
+      "type": "Microsoft.DevTestLab/labs/virtualmachines",
+      "name": "[variables('vmName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "labVirtualNetworkId": "[variables('labVirtualNetworkId')]",
+        "notes": "WindowsServer2019-sysprep",
+        "customImageId": "/subscriptions/8818225c-58f0-44de-a997-92f946312b3b/resourcegroups/dtl/providers/microsoft.devtestlab/labs/dtl-labo/customimages/windowsserver2019-sysprep",
+        "size": "[parameters('size')]",
+        "userName": "[parameters('userName')]",
+        "password": "[parameters('password')]",
+        "isAuthenticationWithSshKey": false,
+        "labSubnetName": "[variables('labSubnetName')]",
+        "disallowPublicIpAddress": false,
+        "storageType": "Premium",
+        "allowClaim": false
+      }
+    }
+  ],
+  "outputs": {
+    "labVMId": {
+      "type": "string",
+      "value": "[variables('vmId')]"
+    }
+  }
+}
